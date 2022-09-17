@@ -1,0 +1,229 @@
+/* 
+  GENERAL
+*/
+:root {
+  --primary-color-1: hsl(1, 90%, 64%);
+  --primary-color-2: hsl(219, 85%, 26%);
+
+  --neutral-color-1: hsl(0, 0%, 100%);
+  --neutral-color-2: hsl(210, 60%, 98%);
+  --neutral-color-3: hsl(211, 68%, 94%);
+  --neutral-color-4: hsl(205, 33%, 90%);
+  --neutral-color-5: hsl(219, 14%, 63%);
+  --neutral-color-6: hsl(219, 12%, 42%);
+  --neutral-color-7: hsl(224, 21%, 14%);
+
+  --max-width: 1000px;
+
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: var(--neutral-color-2);
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  max-width: var(--max-width);
+  padding: 2rem;
+  background-color: var(--neutral-color-1);
+}
+
+footer {
+  padding: 0.4rem 0;
+}
+
+
+/*
+  NOTIFICATIONS INFO
+*/
+.notifications-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.notifications-info h2 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notifications-info h2 span {
+  background-color: var(--primary-color-2);
+  color: var(--neutral-color-1);
+  padding: 0.2rem 1rem;
+  border-radius: 5px;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.notifications-info > span {
+  color: var(--neutral-color-6);
+  transition: color 0.3s ease-in-out;
+}
+
+.notifications-info > span:hover {
+  color: var(--primary-color-2);
+  cursor: pointer;
+}
+
+
+/*
+  NOTIFICATION
+*/
+.notification {
+  background-color: var(--neutral-color-3);
+  border-radius: 10px;
+  padding: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.notification + .notification {
+  margin-top: 1.4rem;
+}
+
+.avatar {
+  align-self: stretch;
+}
+
+.avatar img {
+  height: 4rem;
+}
+
+.notification p,
+.time {
+  color: var(--neutral-color-6);
+}
+
+.info p {
+  margin-bottom: 0.6rem;
+}
+
+.name {
+  color: var(--neutral-color-7);
+  margin-right: 0.4rem;
+}
+
+.notification.message .content {
+  background-color: var(--neutral-color-1);
+  padding: 1.6rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--neutral-color-5);
+  display: none;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.notification.message.read .content:hover {
+  background-color: var(--neutral-color-3);
+  border-color: var(--neutral-color-3);
+}
+
+.notification .info p::after {
+  content: "";
+  height: 0.8rem;
+  width: 0.8rem;
+  border-radius: 50%;
+  background-color: var(--primary-color-1);
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.6rem;
+}
+
+.post,
+.group {
+  font-weight: 800;
+  margin-left: 0.4rem;
+}
+
+.group {
+  color: var(--primary-color-2);
+}
+
+.post:hover,
+.name:hover {
+  color: var(--primary-color-2);
+}
+
+.post,
+.group,
+.name {
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.notification__notification {
+  width: 100%;
+}
+
+.notification.comment .notification__notification {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.notification.comment .content img {
+  height: 5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.notification.read {
+  background-color: var(--neutral-color-1);
+}
+
+.notification.read .info p::after {
+  display: none;
+}
+
+.notification.message.read .content {
+  display: block;
+}
+
+.notification.comment.read .content:hover img {
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 1px var(--primary-color-2));
+}
+
+/* 
+  MEDIA QUERY
+*/
+@media (min-width: 1024px) {
+  main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    min-height: initial;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px 1px var(--neutral-color-7);
+  }
+}
